@@ -17,7 +17,7 @@ $app->get('/mock.{extension}', function ($extension, Request $request) use ($app
 
     return new Response(
         //body
-        $request->get('b') ?: 'e.ndpoint.com',
+        $request->get('b'),
 
         //status code
         $request->get('sc') ? : 200,
