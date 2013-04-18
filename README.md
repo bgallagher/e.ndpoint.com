@@ -1,3 +1,3 @@
 e.ndpoint.com
 =============
-a tool for mocking api endpoints
+a tool for mocking/prototyping api endpoints
