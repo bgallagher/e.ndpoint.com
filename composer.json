@@ -1,0 +1,15 @@
+{
+    "name": "brian/mockurl",
+    "authors": [
+        {
+            "name": "Brian Gallagher",
+            "email": "gallagher.brian@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "1.0.x-dev"
+    },
+    "autoload": {
+        "psr-0": {"MockUrl" : "src/"}
+    }
+}
