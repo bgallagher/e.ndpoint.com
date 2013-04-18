@@ -1,15 +1,18 @@
 {
     "name": "brian/mockurl",
+    "prefer-stable": true,
     "authors": [
         {
-            "name": "Brian Gallagher",
-            "email": "gallagher.brian@gmail.com"
+            "name": "Brian Gallagher"
+        },
+        {
+            "name": "Robert Ross"
         }
     ],
     "require": {
         "silex/silex": "1.0.x-dev"
     },
     "autoload": {
-        "psr-0": {"MockUrl" : "src/"}
+        "psr-0": {"Endpoint" : "src/"}
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace MockUrl\Component\HttpFoundation\File\MimeType;
+namespace Endpoint\Component\HttpFoundation\File\MimeType;
 
 use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeExtensionGuesser;
 
