@@ -1,31 +1,10 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
 
-use Endpoint\Component\HttpFoundation\File\MimeType\ExtensionMimeTypeGuesser;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+ini_set('display_errors', 0);
 
-$app = new Silex\Application();
+require_once __DIR__.'/../vendor/autoload.php';
 
-$app->get('/', function (Request $request) use ($app) {
-    return 'home';
-});
-
-$app->get('/mock.{extension}', function ($extension, Request $request) use ($app) {
-    $extensionMimeTypeGuesser = new ExtensionMimeTypeGuesser();
-
-    return new Response(
-        //body
-        $request->get('b') ?: 'e.ndpoint.com',
-
-        //status code
-        $request->get('sc') ? : 200,
-
-        //headers
-        array(
-            'Content-Type' => $extensionMimeTypeGuesser->guess($extension),
-        )
-    );
-});
-
+$app = require __DIR__.'/../src/app.php';
+require __DIR__.'/../config/prod.php';
+require __DIR__.'/../src/controllers.php';
 $app->run();
