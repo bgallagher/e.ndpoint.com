@@ -7,12 +7,35 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Endpoint\Component\HttpFoundation\File\MimeType\ExtensionMimeTypeGuesser;
 
+
+
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html', array());
+
+    $extensionMimeTypeGuesser = new ExtensionMimeTypeGuesser();
+
+    $model = array(
+        'mimeTypes' => $extensionMimeTypeGuesser->getMimeTypes(),
+        'statusCodes' => Response::$statusTexts
+    );
+
+    return $app['twig']->render('index.html', $model);
+
+//    $form = $app['form.factory']->createBuilder('form')
+//        ->add('name')
+//        ->add('email')
+//        ->add('gender', 'choice', array(
+//                'choices' => array(1 => 'male', 2 => 'female'),
+//                'expanded' => true,
+//            )
+//        )
+//        ->getForm();
+//
+//    return $app['twig']->render('index.html', array('form' => $form->createView()));
 })
 ->bind('homepage');
 
-$app->get('/mock.{extension}', function ($extension, Request $request) use ($app) {
+$app->get('/mock', function (Request $request) use ($app) {
+
     $extensionMimeTypeGuesser = new ExtensionMimeTypeGuesser();
 
     return new Response(
@@ -24,10 +47,10 @@ $app->get('/mock.{extension}', function ($extension, Request $request) use ($app
 
         //headers
         array(
-            'Content-Type' => $extensionMimeTypeGuesser->guess($extension),
+            'Content-Type' => $extensionMimeTypeGuesser->guess($request->get('ct')),
         )
     );
-});
+})->bind('endpoint');
 
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {

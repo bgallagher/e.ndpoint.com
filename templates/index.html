@@ -2,4 +2,13 @@
 
 {% block content %}
     e . n d p o i n t . c o m
+
+{% for extension,mimeType in mimeTypes %}
+<li>{{ extension }} -> {{mimeType}}</li>
+{% endfor %}
+
+{% for code,message in statusCodes %}
+<li>{{ code }} -> {{message}}</li>
+{% endfor %}
+
 {% endblock %}
