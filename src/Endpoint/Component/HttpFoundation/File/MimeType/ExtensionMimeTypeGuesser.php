@@ -11,6 +11,7 @@ class ExtensionMimeTypeGuesser extends MimeTypeExtensionGuesser{
     public function __construct()
     {
         $this->defaultMimeTypes = array_flip($this->defaultExtensions);
+        ksort($this->defaultMimeTypes);
     }
 
     /**

@@ -19,18 +19,6 @@ $app->get('/', function () use ($app) {
     );
 
     return $app['twig']->render('index.html', $model);
-
-//    $form = $app['form.factory']->createBuilder('form')
-//        ->add('name')
-//        ->add('email')
-//        ->add('gender', 'choice', array(
-//                'choices' => array(1 => 'male', 2 => 'female'),
-//                'expanded' => true,
-//            )
-//        )
-//        ->getForm();
-//
-//    return $app['twig']->render('index.html', array('form' => $form->createView()));
 })
 ->bind('homepage');
 
