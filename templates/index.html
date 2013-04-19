@@ -4,6 +4,7 @@
     e.n d p o i n t . c o m
 
         <form action="{{ path('endpoint') }}">
+
             <select name="sc">
                 {% for code,message in statusCodes %}
                     <option value="{{code}}" {% if code == 200 %}selected="selected"{% endif %} >
@@ -21,6 +22,7 @@
             </select>
 
             <input type="submit" value="mock">
+            
         </form>
 
 {% endblock %}
