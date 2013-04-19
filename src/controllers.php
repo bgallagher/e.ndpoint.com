@@ -47,7 +47,7 @@ $app->get('/mock', function (Request $request) use ($app) {
 
         //headers
         array(
-            'Content-Type' => $extensionMimeTypeGuesser->guess($request->get('ct')),
+            'Content-Type' => $extensionMimeTypeGuesser->guess($request->get('ct')) ?: $request->get('ct'),
         )
     );
 })->bind('endpoint');
