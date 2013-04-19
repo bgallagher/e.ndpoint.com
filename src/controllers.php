@@ -38,18 +38,26 @@ $app->get('/mock', function (Request $request) use ($app) {
 
     $extensionMimeTypeGuesser = new ExtensionMimeTypeGuesser();
 
-    return new Response(
+    $response = new Response(
         //body
-        $request->get('b'),
+        $request->get('b') ?: 'set a body',
 
         //status code
-        $request->get('sc') ? : 200,
+        $request->get('sc') ?: 200,
 
         //headers
         array(
             'Content-Type' => $extensionMimeTypeGuesser->guess($request->get('ct')) ?: $request->get('ct'),
         )
     );
+
+    /**
+     * Cache for 1 week
+     */
+    $response->setPublic()->setMaxAge(604800);
+
+    return $response;
+
 })->bind('endpoint');
 
 $app->error(function (\Exception $e, $code) use ($app) {
