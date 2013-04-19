@@ -1,28 +1,80 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    e.n d p o i n t . c o m
 
-        <form action="{{ path('endpoint') }}">
+        <section id="endpoint">
+            <div class="page-header span10 offset1 ">
+                <h1>e.ndpoint.com</h1>
+            </div>
+            <div class="row">
+                <div class="span10 offset1">
+                    <!--<form class="form-horizontal" action="{{ path('endpoint') }}">-->
 
-            <select name="sc">
-                {% for code,message in statusCodes %}
-                    <option value="{{code}}" {% if code == 200 %}selected="selected"{% endif %} >
-                        {{code}} : {{message}}
-                    </option>
-                {% endfor %}
-            </select>
+                            <!--<legend>create an endpoint</legend>-->
+                            <!--<select name="sc">-->
+                                <!--{% for code,message in statusCodes %}-->
+                                <!--<option value="{{code}}" {% if code == 200 %}selected="selected"{% endif %} >-->
+                                <!--{{code}} : {{message}}-->
+                                <!--</option>-->
+                                <!--{% endfor %}-->
+                            <!--</select>-->
 
-            <select name="ct">
-                {% for extension,mimeType in mimeTypes %}
-                <option value="{{extension}}" {% if extension == 'html' %}selected="selected"{% endif %} >
-                {{extension}} : {{mimeType}}
-                </option>
-                {% endfor %}
-            </select>
+                            <!--<select name="ct">-->
+                                <!--{% for extension,mimeType in mimeTypes %}-->
+                                <!--<option value="{{extension}}" {% if extension == 'html' %}selected="selected"{% endif %} >-->
+                                <!--{{extension}} : {{mimeType}}-->
+                                <!--</option>-->
+                                <!--{% endfor %}-->
+                            <!--</select>-->
+                            <!--<textarea rows="3" type="text" name="b" style=""></textarea>-->
 
-            <input type="submit" value="mock">
-            
-        </form>
+                            <!--<button type="submit" class="btn" value="mock">mock</button>-->
+
+                    <!--</form>-->
+
+                    <form class="form-horizontal" action="{{ path('endpoint') }}">
+                        <div class="control-group">
+                            <label class="control-label" for="sc">status code</label>
+                            <div class="controls">
+                                <select name="sc" id="sc">
+                                    {% for code,message in statusCodes %}
+                                    <option value="{{code}}" {% if code == 200 %}selected="selected"{% endif %} >
+                                    {{code}} : {{message}}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="ct">content type</label>
+                            <div class="controls">
+                                <select name="ct" id="ct">
+                                    {% for extension,mimeType in mimeTypes %}
+                                    <option value="{{extension}}" {% if extension == 'html' %}selected="selected"{% endif %} >
+                                    {{extension}} : {{mimeType}}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="b">body</label>
+                            <div class="controls">
+                                <textarea rows="3" type="text" name="b" id="b" style=""></textarea>
+
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type="submit" class="btn btn-primary btn-large" value="mock">mock it!</button>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+
 
 {% endblock %}
