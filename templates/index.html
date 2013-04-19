@@ -3,12 +3,24 @@
 {% block content %}
     e . n d p o i n t . c o m
 
-{% for extension,mimeType in mimeTypes %}
-<li>{{ extension }} -> {{mimeType}}</li>
-{% endfor %}
+        <form action="{{ path('endpoint') }}">
+            <select name="sc">
+                {% for code,message in statusCodes %}
+                    <option value="{{code}}" {% if code == 200 %}selected="selected"{% endif %} >
+                        {{code}} : {{message}}
+                    </option>
+                {% endfor %}
+            </select>
 
-{% for code,message in statusCodes %}
-<li>{{ code }} -> {{message}}</li>
-{% endfor %}
+            <select name="ct">
+                {% for extension,mimeType in mimeTypes %}
+                <option value="{{extension}}" {% if extension == 'html' %}selected="selected"{% endif %} >
+                {{extension}} : {{mimeType}}
+                </option>
+                {% endfor %}
+            </select>
+
+            <input type="submit" value="mock">
+        </form>
 
 {% endblock %}
