@@ -5,38 +5,17 @@
         <section id="endpoint">
             <div class="page-header span10 offset1 ">
                 <h1>e.ndpoint.com</h1>
+                <p class="lead">A simple way to mock-up endpoints.</p>
             </div>
             <div class="row">
                 <div class="span10 offset1">
-                    <!--<form class="form-horizontal" action="{{ path('endpoint') }}">-->
 
-                            <!--<legend>create an endpoint</legend>-->
-                            <!--<select name="sc">-->
-                                <!--{% for code,message in statusCodes %}-->
-                                <!--<option value="{{code}}" {% if code == 200 %}selected="selected"{% endif %} >-->
-                                <!--{{code}} : {{message}}-->
-                                <!--</option>-->
-                                <!--{% endfor %}-->
-                            <!--</select>-->
-
-                            <!--<select name="ct">-->
-                                <!--{% for extension,mimeType in mimeTypes %}-->
-                                <!--<option value="{{extension}}" {% if extension == 'html' %}selected="selected"{% endif %} >-->
-                                <!--{{extension}} : {{mimeType}}-->
-                                <!--</option>-->
-                                <!--{% endfor %}-->
-                            <!--</select>-->
-                            <!--<textarea rows="3" type="text" name="b" style=""></textarea>-->
-
-                            <!--<button type="submit" class="btn" value="mock">mock</button>-->
-
-                    <!--</form>-->
 
                     <form class="form-horizontal" action="{{ path('endpoint') }}">
                         <div class="control-group">
-                            <label class="control-label" for="sc">status code</label>
+                            <label class="control-label " for="sc">status code</label>
                             <div class="controls">
-                                <select name="sc" id="sc">
+                                <select class="input-xlarge" name="sc" id="sc">
                                     {% for code,message in statusCodes %}
                                     <option value="{{code}}" {% if code == 200 %}selected="selected"{% endif %} >
                                     {{code}} : {{message}}
@@ -48,7 +27,7 @@
                         <div class="control-group">
                             <label class="control-label" for="ct">content type</label>
                             <div class="controls">
-                                <select name="ct" id="ct">
+                                <select class="input-xlarge" name="ct" id="ct">
                                     {% for extension,mimeType in mimeTypes %}
                                     <option value="{{extension}}" {% if extension == 'html' %}selected="selected"{% endif %} >
                                     {{extension}} : {{mimeType}}
@@ -60,13 +39,13 @@
                         <div class="control-group">
                             <label class="control-label" for="b">body</label>
                             <div class="controls">
-                                <textarea rows="3" type="text" name="b" id="b" style=""></textarea>
+                                <textarea rows="10" type="text" name="b" id="b" class="input-xxlarge"></textarea>
 
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="controls">
-                                <button type="submit" class="btn btn-primary btn-large" value="mock">mock it!</button>
+                                <button type="submit" class="btn btn-success btn-large" value="mock">mock it! </button>
 
                             </div>
                         </div>
