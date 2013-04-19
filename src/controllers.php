@@ -40,7 +40,7 @@ $app->get('/mock', function (Request $request) use ($app) {
 
     $response = new Response(
         //body
-        $request->get('b') ?: 'set a body',
+        $request->get('b') ?: '',
 
         //status code
         $request->get('sc') ?: 200,

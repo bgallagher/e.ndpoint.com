@@ -1,59 +1,102 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<div id="wrap">
+    <section id="endpoint">
 
-        <section id="endpoint">
-            <div class="page-header span10 offset1 ">
+        <div class="row">
+
+            <div class="span9 offset2">
                 <h1>e.ndpoint.com</h1>
+
                 <p class="lead">A simple way to mock-up endpoints.</p>
+                <hr>
             </div>
-            <div class="row">
-                <div class="span10 offset1">
 
+            <div class="span9 offset2">
 
-                    <form class="form-horizontal" action="{{ path('endpoint') }}">
-                        <div class="control-group">
-                            <label class="control-label " for="sc">status code</label>
-                            <div class="controls">
-                                <select class="input-xlarge" name="sc" id="sc">
-                                    {% for code,message in statusCodes %}
-                                    <option value="{{code}}" {% if code == 200 %}selected="selected"{% endif %} >
-                                    {{code}} : {{message}}
-                                    </option>
-                                    {% endfor %}
-                                </select>
-                            </div>
+                <form class="form-horizontal" action="{{ path('endpoint') }}">
+                    <div class="control-group">
+                        <label class="control-label " for="sc">status code</label>
+
+                        <div class="controls">
+                            <select class="input-xlarge" name="sc" id="sc">
+                                {% for code,message in statusCodes %}
+                                <option value="{{code}}"
+                                {% if code == 200 %}selected="selected"{% endif %} >
+                                {{code}} : {{message}}
+                                </option>
+                                {% endfor %}
+                            </select>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label" for="ct">content type</label>
-                            <div class="controls">
-                                <select class="input-xlarge" name="ct" id="ct">
-                                    {% for extension,mimeType in mimeTypes %}
-                                    <option value="{{extension}}" {% if extension == 'html' %}selected="selected"{% endif %} >
-                                    {{extension}} : {{mimeType}}
-                                    </option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="b">body</label>
-                            <div class="controls">
-                                <textarea rows="10" type="text" name="b" id="b" class="input-xxlarge"></textarea>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="ct">content type</label>
 
-                            </div>
+                        <div class="controls">
+                            <select class="input-xlarge" name="ct" id="ct">
+                                {% for extension,mimeType in mimeTypes %}
+                                <option value="{{extension}}"
+                                {% if extension == 'html' %}selected="selected"{% endif %} >
+                                {{extension}} : {{mimeType}}
+                                </option>
+                                {% endfor %}
+                            </select>
                         </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <button type="submit" class="btn btn-success btn-large" value="mock">mock it! </button>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="b">body</label>
 
-                            </div>
+                        <div class="controls">
+                            <textarea rows="10" type="text" name="b" id="b" class="input-xxlarge"></textarea>
+
                         </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn btn-success btn-large" value="mock">mock it!</button>
 
-                    </form>
-                </div>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-        </section>
+        </div>
+    </section>
 
+    <section id="why">
+        <div class="row">
+
+            <div class="span9 offset2">
+                <hr>
+                <h3>why?</h3>
+
+                <p>
+                    because sometimes you just need an endpoint to prototype a client, or maybe an endpoint with a
+                    specific
+                    status code for testing.
+                </p>
+            </div>
+            <div class="span9 offset2">
+                <hr>
+                <h3>examples</h3>
+
+                <p>
+                <ul>
+                    <li>
+                        <a href="http://e.ndpoint.com/mock?sc=200&ct=json&b=%7B%0D%0A++++%22firstName%22+%3A+%22Douglas%22%2C%0D%0A++++%22lastName%22+%3A+%22Crockford%22%0D%0A++++%22about%22+%3A+%22http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FDouglas_Crockford%22%0D%0A%7D">
+                            a simple json object
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://e.ndpoint.com/mock?sc=200&ct=json&b=%7B%0D%0A++%22coordinates%22%3A+null%2C%0D%0A++%22favorited%22%3A+false%2C%0D%0A++%22truncated%22%3A+false%2C%0D%0A++%22created_at%22%3A+%22Wed+Jun+06+20%3A07%3A10+%2B0000+2012%22%2C%0D%0A++%22id_str%22%3A+%22210462857140252672%22%2C%0D%0A++%22entities%22%3A+%7B%0D%0A++++%22urls%22%3A+%5B%0D%0A++++++%7B%0D%0A++++++++%22expanded_url%22%3A+%22https%3A%2F%2Fdev.twitter.com%2Fterms%2Fdisplay-guidelines%22%2C%0D%0A++++++++%22url%22%3A+%22https%3A%2F%2Ft.co%2FEd4omjYs%22%2C%0D%0A++++++++%22indices%22%3A+%5B%0D%0A++++++++++76%2C%0D%0A++++++++++97%0D%0A++++++++%5D%2C%0D%0A++++++++%22display_url%22%3A+%22dev.twitter.com%2Fterms%2Fdisplay-%5Cu2026%22%0D%0A++++++%7D%0D%0A++++%5D%2C%0D%0A++++%22hashtags%22%3A+%5B%0D%0A++++++%7B%0D%0A++++++++%22text%22%3A+%22Twitterbird%22%2C%0D%0A++++++++%22indices%22%3A+%5B%0D%0A++++++++++19%2C%0D%0A++++++++++31%0D%0A++++++++%5D%0D%0A++++++%7D%0D%0A++++%5D%2C%0D%0A++++%22user_mentions%22%3A+%5B%0D%0A+%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22in_reply_to_user_id_str%22%3A+null%2C%0D%0A++%22contributors%22%3A+%5B%0D%0A++++14927800%0D%0A++%5D%2C%0D%0A++%22text%22%3A+%22Along+with+our+new+%23Twitterbird%2C+we%27ve+also+updated+our+Display+Guidelines%3A+https%3A%2F%2Ft.co%2FEd4omjYs++%5EJC%22%2C%0D%0A++%22retweet_count%22%3A+66%2C%0D%0A++%22in_reply_to_status_id_str%22%3A+null%2C%0D%0A++%22id%22%3A+210462857140252672%2C%0D%0A++%22geo%22%3A+null%2C%0D%0A++%22retweeted%22%3A+true%2C%0D%0A++%22possibly_sensitive%22%3A+false%2C%0D%0A++%22in_reply_to_user_id%22%3A+null%2C%0D%0A++%22place%22%3A+null%2C%0D%0A++%22user%22%3A+%7B%0D%0A++++%22profile_sidebar_fill_color%22%3A+%22DDEEF6%22%2C%0D%0A++++%22profile_sidebar_border_color%22%3A+%22C0DEED%22%2C%0D%0A++++%22profile_background_tile%22%3A+false%2C%0D%0A++++%22name%22%3A+%22Twitter+API%22%2C%0D%0A++++%22profile_image_url%22%3A+%22http%3A%2F%2Fa0.twimg.com%2Fprofile_images%2F2284174872%2F7df3h38zabcvjylnyfe3_normal.png%22%2C%0D%0A++++%22created_at%22%3A+%22Wed+May+23+06%3A01%3A13+%2B0000+2007%22%2C%0D%0A++++%22location%22%3A+%22San+Francisco%2C+CA%22%2C%0D%0A++++%22follow_request_sent%22%3A+false%2C%0D%0A++++%22profile_link_color%22%3A+%220084B4%22%2C%0D%0A++++%22is_translator%22%3A+false%2C%0D%0A++++%22id_str%22%3A+%226253282%22%2C%0D%0A++++%22entities%22%3A+%7B%0D%0A++++++%22url%22%3A+%7B%0D%0A++++++++%22urls%22%3A+%5B%0D%0A++++++++++%7B%0D%0A++++++++++++%22expanded_url%22%3A+null%2C%0D%0A++++++++++++%22url%22%3A+%22http%3A%2F%2Fdev.twitter.com%22%2C%0D%0A++++++++++++%22indices%22%3A+%5B%0D%0A++++++++++++++0%2C%0D%0A++++++++++++++22%0D%0A++++++++++++%5D%0D%0A++++++++++%7D%0D%0A++++++++%5D%0D%0A++++++%7D%2C%0D%0A++++++%22description%22%3A+%7B%0D%0A++++++++%22urls%22%3A+%5B%0D%0A+%0D%0A++++++++%5D%0D%0A++++++%7D%0D%0A++++%7D%2C%0D%0A++++%22default_profile%22%3A+true%2C%0D%0A++++%22contributors_enabled%22%3A+true%2C%0D%0A++++%22favourites_count%22%3A+24%2C%0D%0A++++%22url%22%3A+%22http%3A%2F%2Fdev.twitter.com%22%2C%0D%0A++++%22profile_image_url_https%22%3A+%22https%3A%2F%2Fsi0.twimg.com%2Fprofile_images%2F2284174872%2F7df3h38zabcvjylnyfe3_normal.png%22%2C%0D%0A++++%22utc_offset%22%3A+-28800%2C%0D%0A++++%22id%22%3A+6253282%2C%0D%0A++++%22profile_use_background_image%22%3A+true%2C%0D%0A++++%22listed_count%22%3A+10774%2C%0D%0A++++%22profile_text_color%22%3A+%22333333%22%2C%0D%0A++++%22lang%22%3A+%22en%22%2C%0D%0A++++%22followers_count%22%3A+1212963%2C%0D%0A++++%22protected%22%3A+false%2C%0D%0A++++%22notifications%22%3A+null%2C%0D%0A++++%22profile_background_image_url_https%22%3A+%22https%3A%2F%2Fsi0.twimg.com%2Fimages%2Fthemes%2Ftheme1%2Fbg.png%22%2C%0D%0A++++%22profile_background_color%22%3A+%22C0DEED%22%2C%0D%0A++++%22verified%22%3A+true%2C%0D%0A++++%22geo_enabled%22%3A+true%2C%0D%0A++++%22time_zone%22%3A+%22Pacific+Time+%28US+%26+Canada%29%22%2C%0D%0A++++%22description%22%3A+%22The+Real+Twitter+API.+I+tweet+about+API+changes%2C+service+issues+and+happily+answer+questions+about+Twitter+and+our+API.+Don%27t+get+an+answer%3F+It%27s+on+my+website.%22%2C%0D%0A++++%22default_profile_image%22%3A+false%2C%0D%0A++++%22profile_background_image_url%22%3A+%22http%3A%2F%2Fa0.twimg.com%2Fimages%2Fthemes%2Ftheme1%2Fbg.png%22%2C%0D%0A++++%22statuses_count%22%3A+3333%2C%0D%0A++++%22friends_count%22%3A+31%2C%0D%0A++++%22following%22%3A+true%2C%0D%0A++++%22show_all_inline_media%22%3A+false%2C%0D%0A++++%22screen_name%22%3A+%22twitterapi%22%0D%0A++%7D%2C%0D%0A++%22in_reply_to_screen_name%22%3A+null%2C%0D%0A++%22source%22%3A+%22web%22%2C%0D%0A++%22in_reply_to_status_id%22%3A+null%0D%0A%7D">
+                            twitter status (tweet)
+                        </a>
+                    </li>
+                </ul>
+                </p>
+            </div>
+    </section>
+</div>
 
 {% endblock %}
