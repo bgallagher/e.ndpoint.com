@@ -22,18 +22,13 @@ $app->get('/', function () use ($app) {
 })
 ->bind('homepage');
 
-$app->get('/mock', function (Request $request) use ($app) {
+$app->match('/mock', function (Request $request) use ($app) {
 
     $extensionMimeTypeGuesser = new ExtensionMimeTypeGuesser();
 
     $response = new Response(
-        //body
         $request->get('b') ?: '',
-
-        //status code
         $request->get('sc') ?: 200,
-
-        //headers
         array(
             'Content-Type' => $extensionMimeTypeGuesser->guess($request->get('ct')) ?: $request->get('ct'),
         )
