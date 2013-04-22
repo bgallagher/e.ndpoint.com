@@ -2,16 +2,10 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Endpoint\Component\HttpFoundation\File\MimeType\ExtensionMimeTypeGuesser;
-
-
 
 $app->get('/', function () use ($app) {
 
-    $extensionMimeTypeGuesser = new ExtensionMimeTypeGuesser();
+    $extensionMimeTypeGuesser = $app['extensionGuesser'];
 
     $model = array(
         'mimeTypes' => $extensionMimeTypeGuesser->getMimeTypes(),
@@ -20,17 +14,17 @@ $app->get('/', function () use ($app) {
 
     return $app['twig']->render('index.html', $model);
 })
-->bind('homepage');
+    ->bind('homepage');
 
 $app->match('/mock', function (Request $request) use ($app) {
 
-    $extensionMimeTypeGuesser = new ExtensionMimeTypeGuesser();
+    $extensionMimeTypeGuesser = $app['extensionGuesser'];
 
     $response = new Response(
-        $request->get('b') ?: '',
-        $request->get('sc') ?: 200,
+        $request->get('b') ? : '',
+        $request->get('sc') ? : 200,
         array(
-            'Content-Type' => $extensionMimeTypeGuesser->guess($request->get('ct')) ?: $request->get('ct'),
+            'Content-Type' => $extensionMimeTypeGuesser->guess($request->get('ct')) ? : $request->get('ct'),
         )
     );
 
