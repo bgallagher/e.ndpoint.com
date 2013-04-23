@@ -37,6 +37,10 @@ $app->match('/mock', function (Request $request) use ($app) {
 
 })->bind('endpoint');
 
+$app->get('/{endpoint}/{childEndpoint}', function ($endpoint, $childEndpoint) use ($app) {
+    return $endpoint . ' ' . $childEndpoint;
+})->value('childEndpoint', '');
+
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
         return;
