@@ -40,15 +40,21 @@ $app->match('/mock', function (Request $request) use ($app) {
 $app->get('/{endpoint}/{childEndpoint}', function ($endpoint, $childEndpoint) use ($app) {
 
     $data = array(
-        'body' => $endpoint . ' body'
+        'body' => $endpoint . ' body',
+        'statusCode' => 201,
+        'contentType' => 'json',
     );
 
     $response = new Response(
-        $data['body']
+        $data['body'],
+        $data['statusCode'],
+        array(
+            'Content-Type' => $app['extensionGuesser']->guess($data['contentType']),
+        )
     );
 
     return $response;
-    //return $endpoint . ' ' . $childEndpoint;
+
 })->value('childEndpoint', '');
 
 $app->error(function (\Exception $e, $code) use ($app) {
