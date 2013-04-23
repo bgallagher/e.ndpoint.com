@@ -13,8 +13,8 @@ $app->get('/', function () use ($app) {
     );
 
     return $app['twig']->render('index.html', $model);
-})
-    ->bind('homepage');
+
+})->bind('homepage');
 
 $app->match('/mock', function (Request $request) use ($app) {
 

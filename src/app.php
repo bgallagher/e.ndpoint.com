@@ -23,7 +23,6 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array( //'locale
 ));
 $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
     // add custom globals, filters, tags, ...
-
     return $twig;
 }));
 
