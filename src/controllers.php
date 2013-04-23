@@ -37,25 +37,19 @@ $app->match('/mock', function (Request $request) use ($app) {
 
 })->bind('endpoint');
 
-$app->get('/{endpoint}/{childEndpoint}', function ($endpoint, $childEndpoint) use ($app) {
+$app->match('{url}', function($url, Request $request) use ($app){
 
-    $data = array(
-        'body' => $endpoint . ' body',
-        'statusCode' => 201,
-        'contentType' => 'json',
-    );
+    /**
+     * Get the last part off the url
+     */
+    $url = trim($url, '/');
+    $urlParts = explode('/', $url);
+    $endpointHash = array_pop($urlParts);
 
-    $response = new Response(
-        $data['body'],
-        $data['statusCode'],
-        array(
-            'Content-Type' => $app['extensionGuesser']->guess($data['contentType']),
-        )
-    );
+    return $epHash;
+    //$app->abort(404);
 
-    return $response;
-
-})->value('childEndpoint', '');
+})->assert('url', '.+');;
 
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
