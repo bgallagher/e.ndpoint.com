@@ -46,7 +46,7 @@ $app->match('{url}', function($url, Request $request) use ($app){
     $urlParts = explode('/', $url);
     $endpointHash = array_pop($urlParts);
 
-    return $epHash;
+    return $endpointHash;
     //$app->abort(404);
 
 })->assert('url', '.+');;
