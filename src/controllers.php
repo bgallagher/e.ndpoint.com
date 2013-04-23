@@ -38,7 +38,17 @@ $app->match('/mock', function (Request $request) use ($app) {
 })->bind('endpoint');
 
 $app->get('/{endpoint}/{childEndpoint}', function ($endpoint, $childEndpoint) use ($app) {
-    return $endpoint . ' ' . $childEndpoint;
+
+    $data = array(
+        'body' => $endpoint . ' body'
+    );
+
+    $response = new Response(
+        $data['body']
+    );
+
+    return $response;
+    //return $endpoint . ' ' . $childEndpoint;
 })->value('childEndpoint', '');
 
 $app->error(function (\Exception $e, $code) use ($app) {
