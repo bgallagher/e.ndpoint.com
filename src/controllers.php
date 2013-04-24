@@ -37,6 +37,20 @@ $app->match('/mock', function (Request $request) use ($app) {
 
 })->bind('endpoint');
 
+$app->match('{url}', function($url, Request $request) use ($app){
+
+    /**
+     * Get the last part off the url
+     */
+    $url = trim($url, '/');
+    $urlParts = explode('/', $url);
+    $endpointHash = array_pop($urlParts);
+
+    return $endpointHash;
+    //$app->abort(404);
+
+})->assert('url', '.+');;
+
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
         return;
