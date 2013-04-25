@@ -15,22 +15,22 @@ class Endpoint
     private $idHash;
 
     /**
-     * @var string
+     * @var array
      */
     private $getResponse;
 
     /**
-     * @var string
+     * @var array
      */
     private $postResponse;
 
     /**
-     * @var string
+     * @var array
      */
     private $putResponse;
 
     /**
-     * @var string
+     * @var array
      */
     private $deleteResponse;
 
@@ -76,7 +76,7 @@ class Endpoint
     /**
      * Set getResponse
      *
-     * @param string $getResponse
+     * @param array $getResponse
      * @return Endpoint
      */
     public function setGetResponse($getResponse)
@@ -89,7 +89,7 @@ class Endpoint
     /**
      * Get getResponse
      *
-     * @return string 
+     * @return array 
      */
     public function getGetResponse()
     {
@@ -99,7 +99,7 @@ class Endpoint
     /**
      * Set postResponse
      *
-     * @param string $postResponse
+     * @param array $postResponse
      * @return Endpoint
      */
     public function setPostResponse($postResponse)
@@ -112,7 +112,7 @@ class Endpoint
     /**
      * Get postResponse
      *
-     * @return string 
+     * @return array 
      */
     public function getPostResponse()
     {
@@ -122,7 +122,7 @@ class Endpoint
     /**
      * Set putResponse
      *
-     * @param string $putResponse
+     * @param array $putResponse
      * @return Endpoint
      */
     public function setPutResponse($putResponse)
@@ -135,7 +135,7 @@ class Endpoint
     /**
      * Get putResponse
      *
-     * @return string 
+     * @return array 
      */
     public function getPutResponse()
     {
@@ -145,7 +145,7 @@ class Endpoint
     /**
      * Set deleteResponse
      *
-     * @param string $deleteResponse
+     * @param array $deleteResponse
      * @return Endpoint
      */
     public function setDeleteResponse($deleteResponse)
@@ -158,7 +158,7 @@ class Endpoint
     /**
      * Get deleteResponse
      *
-     * @return string 
+     * @return array 
      */
     public function getDeleteResponse()
     {

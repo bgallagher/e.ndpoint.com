@@ -12,13 +12,13 @@
 
         <field name="idHash" column="id_hash" type="string"/>
 
-        <field name="getResponse" column="get_response" type="text" nullable="true"/>
+        <field name="getResponse" column="get_response" type="json_array" nullable="true"/>
 
-        <field name="postResponse" column="post_response" type="text" nullable="true"/>
+        <field name="postResponse" column="post_response" type="json_array" nullable="true"/>
 
-        <field name="putResponse" column="put_response" type="text" nullable="true"/>
+        <field name="putResponse" column="put_response" type="json_array" nullable="true"/>
 
-        <field name="deleteResponse" column="delete_response" type="text" nullable="true"/>
+        <field name="deleteResponse" column="delete_response" type="json_array" nullable="true"/>
 
         <field name="createdDate" column="created_date" type="datetime"/>
 

@@ -1,6 +1,7 @@
 <?php
 
 use Dflydev\Silex\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
+use Endpoint\Service\Endpoint as EndpointService;
 use Endpoint\Component\HttpFoundation\File\MimeType\ExtensionMimeTypeGuesser;
 use Silex\Application;
 use Silex\Provider\DoctrineServiceProvider;
@@ -47,6 +48,10 @@ $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
 
 $app['extensionGuesser'] = $app->share(function ($app) {
     return new ExtensionMimeTypeGuesser();
+});
+
+$app['endpoint.service'] = $app->share(function($app){
+    return new EndpointService($app['orm.em']);
 });
 
 return $app;
