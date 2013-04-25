@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Endpoint\Entity\Endpoint" table="endpoint">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="idHash" column="id_hash" type="string"/>
+
+        <field name="getResponse" column="get_response" type="text" nullable="true"/>
+
+        <field name="postResponse" column="post_response" type="text" nullable="true"/>
+
+        <field name="putResponse" column="put_response" type="text" nullable="true"/>
+
+        <field name="deleteResponse" column="delete_response" type="text" nullable="true"/>
+
+        <field name="createdDate" column="created_date" type="datetime"/>
+
+        <field name="updatedDate" column="updated_date" type="datetime"/>
+
+    </entity>
+
+</doctrine-mapping>

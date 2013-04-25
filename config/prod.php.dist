@@ -1,0 +1,10 @@
+<?php
+
+// configure your app for the production environment
+$app['db.options'] = array(
+    'dbname' => 'endpoint',
+    'user' => 'username',
+    'password' => 'password',
+    'host' => 'localhost',
+    'driver' => 'pdo_mysql',
+);
