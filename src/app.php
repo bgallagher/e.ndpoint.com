@@ -28,7 +28,7 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array( //'locale
 $app->register(new DoctrineServiceProvider());
 
 $app->register(new DoctrineOrmServiceProvider(), array(
-    "orm.proxies_dir" => "/path/to/proxies",
+    "orm.proxies_dir" => "/cache/doctrine/proxies",
     "orm.em.options" => array(
         "mappings" => array(
             array(
