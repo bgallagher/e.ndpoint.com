@@ -38,6 +38,12 @@ $app->match('/mock', function (Request $request) use ($app) {
 
 })->bind('endpoint');
 
+$app->get('/mocks/{mock}/info', function () use ($app) {
+
+    return $app['twig']->render('mocks-info.html');
+
+});
+
 $app->match('{url}', function ($url, Request $request) use ($app) {
 
     /**
