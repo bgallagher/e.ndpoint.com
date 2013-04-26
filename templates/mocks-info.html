@@ -6,16 +6,13 @@
         <div class="span8 offset2 ">
             <br><br>
             <h1>e.ndpoint.com</h1>
-
-            <p class="lead">specific information.</p>
-
+            <p class="lead">specific information...</p>
             <hr>
         </div>
         <div class="span2 visible-desktop ">
             <br><br>
             <img src="/img/logotry-green.png" style="width: 100px;">
         </div>
-
     </div>
 
     <div class="row">
@@ -24,26 +21,22 @@
             <form class="form-inline">
                 <label style="font-size: 2em; height: 2em; margin-right: 36px">= </label>
                 <input class="input-xxlarge" style="font-size: 2em; height: 2em; margin-right: 36px" type="text" value="http://e.ndpoint.com/mocks/{{base62}}" readonly>
-                <button class="btn btn-success btn-inverse btn-small" ><i class="icon-plus icon-white"></i> copy to clipboard</button>
-            </form>
 
+                <button class="btn btn-success btn-sucess btn-small" ><i class="icon-plus icon-white"></i> copy to clipboard</button>
+            </form>
 
         </div>
 
 
     </div>
-
-    <hr>
-
-
     <div class="row">
-        <div class="well span10 offset2 ">
-            <div style="font-size: 1.7em; height: 2em; margin-right: 36px; font-weight: 200">
-                Response is <strong style="font-size: 1.6em; font-weight: 500">{{getResponse.contentType}}</strong>
-            </div>
-            <div>
-                to a <strong>GET</st
-                rong> request with a status of <strong> {{getResponse.statusCode}}</strong>
+        <div class="span10 offset2 ">
+            <hr>
+            <div style="font-size: 1.7em; height: 2em; margin-right: 36px; font-weight: 200; line-height: 2em">
+                Your <strong class="well">GET</strong> request will respond with <strong class="well"> {{getResponse.contentType}}</strong>
+                and a status code of <strong class="well">{{getResponse.statusCode}}</strong>
+
+
             </div>
         </div>
     </div>
