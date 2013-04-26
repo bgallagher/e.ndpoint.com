@@ -1,0 +1,9 @@
+<?php
+
+$app['db.options'] = array(
+    'dbname' => 'endpoint',
+    'user' => 'username',
+    'password' => 'password',
+    'host' => 'localhost',
+    'driver' => 'pdo_mysql',
+);
