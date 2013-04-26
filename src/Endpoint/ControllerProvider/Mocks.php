@@ -61,6 +61,10 @@ class Mocks implements ControllerProviderInterface
 
             $endpoint = $endpointService->findByBase62($base62);
 
+            if (!$endpoint instanceof EndpointEntity) {
+                $app->abort(404);
+            }
+
             $methodGetter = 'get' . ucfirst(strtolower($request->getMethod())) . 'Response';
 
             $responseData = array_merge($this->defaultResponseData, $endpoint->$methodGetter());
@@ -73,9 +77,7 @@ class Mocks implements ControllerProviderInterface
                 )
             );
 
-            var_dump($responseData);
-
-        });
+        })->method('GET|POST|PUT|DELETE');
 
         return $controllers;
     }
