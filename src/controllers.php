@@ -1,5 +1,6 @@
 <?php
 
+use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -37,7 +38,7 @@ $app->match('/mock', function (Request $request) use ($app) {
 
 })->bind('endpoint');
 
-$app->match('{url}', function($url, Request $request) use ($app){
+$app->match('{url}', function ($url, Request $request) use ($app) {
 
     /**
      * Get the last part off the url
