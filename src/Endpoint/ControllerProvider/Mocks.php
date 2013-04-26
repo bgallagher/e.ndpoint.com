@@ -34,21 +34,14 @@ class Mocks implements ControllerProviderInterface
 
         $controllers->get('/{base62}/info', function ($base62) use ($app) {
 
-            $tmpEndpoint = new EndpointEntity();
-            $tmpEndpointArray = [];
+            $endpointService = $app['endpoint.service'];
+            $endpoint = $endpointService->findByBase62($base62);
 
-            $tmpEndpoint->setBase62($base62);
-            $tmpEndpoint->setGetResponse(array(
-                'content-type' => 'json',
-                'body' => 'hello world',
-                'status-code' => 200
-            ));
+            if (!$endpoint instanceof EndpointEntity) {
+                $app->abort(404);
+            }
 
-            $model = array(
-                'contentType' => 'json',
-                'body' => 'hello world',
-                'statusCode' => 200
-            );
+            $model = $app['endpoint.service']->endpointToArray($endpoint);
 
             return $app['twig']->render('mocks-info.html', $model);
 
