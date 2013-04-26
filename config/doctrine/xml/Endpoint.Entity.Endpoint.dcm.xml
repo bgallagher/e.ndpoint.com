@@ -10,7 +10,7 @@
             <generator strategy="AUTO"/>
         </id>
 
-        <field name="base62" column="base62" type="string"/>
+        <field name="base62" column="base62" type="string" nullable="true"/>
 
         <field name="getResponse" column="get_response" type="json_array" nullable="true"/>
 
@@ -21,8 +21,6 @@
         <field name="deleteResponse" column="delete_response" type="json_array" nullable="true"/>
 
         <field name="createdDate" column="created_date" type="datetime"/>
-
-        <field name="updatedDate" column="updated_date" type="datetime"/>
 
     </entity>
 
