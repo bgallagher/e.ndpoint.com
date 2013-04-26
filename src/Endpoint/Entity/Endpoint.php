@@ -12,7 +12,7 @@ class Endpoint
     /**
      * @var string
      */
-    private $idHash;
+    private $base62;
 
     /**
      * @var array
@@ -51,26 +51,26 @@ class Endpoint
 
 
     /**
-     * Set idHash
+     * Set base62
      *
-     * @param string $idHash
+     * @param string $base62
      * @return Endpoint
      */
-    public function setIdHash($idHash)
+    public function setBase62($base62)
     {
-        $this->idHash = $idHash;
+        $this->base62 = $base62;
     
         return $this;
     }
 
     /**
-     * Get idHash
+     * Get base62
      *
      * @return string 
      */
-    public function getIdHash()
+    public function getBase62()
     {
-        return $this->idHash;
+        return $this->base62;
     }
 
     /**
