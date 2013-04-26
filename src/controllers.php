@@ -3,6 +3,7 @@
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Endpoint\Entity\Endpoint as EndpointEntity;
 
 $app->get('/', function () use ($app) {
 
@@ -44,19 +45,22 @@ $app->get('/mocks/{mock}/info', function () use ($app) {
 
 });
 
-$app->match('{url}', function ($url, Request $request) use ($app) {
+$app->post('/mocks', function(Request $request) use ($app){
 
-    /**
-     * Get the last part off the url
-     */
-    $url = trim($url, '/');
-    $urlParts = explode('/', $url);
-    $endpointHash = array_pop($urlParts);
+    $endpointService = $app['endpoint.service'];
 
-    return $endpointHash;
-    //$app->abort(404);
+    $endpoint = new EndpointEntity();
+    $endpoint->setGetResponse(array(
+        'statusCode' => $request->get('statusCode') ? : 200,
+        'body' => $request->get('body') ? : '',
+        'contentType' => $request->get('contentType'),
+    ));
 
-})->assert('url', '.+');;
+    $endpointService->create($endpoint);
+
+    return $app->redirect("/mocks/{$endpoint->getBase62()}/info");
+
+})->bind('mocks-create');
 
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
