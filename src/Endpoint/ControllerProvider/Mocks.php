@@ -63,7 +63,7 @@ class Mocks implements ControllerProviderInterface
 
             $methodGetter = 'get' . ucfirst(strtolower($request->getMethod())) . 'Response';
 
-            $responseData = array_merge($endpoint->$methodGetter(), $this->defaultResponseData);
+            $responseData = array_merge($this->defaultResponseData, $endpoint->$methodGetter());
 
             return new Response(
                 $responseData['body'],
