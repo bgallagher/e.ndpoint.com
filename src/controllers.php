@@ -1,5 +1,6 @@
 <?php
 
+use Endpoint\Entity\Endpoint as EndpointEntity;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,9 +40,25 @@ $app->match('/mock', function (Request $request) use ($app) {
 
 })->bind('endpoint');
 
-$app->get('/mocks/{mock}/info', function () use ($app) {
+$app->get('/mocks/{base62}/info', function ($base62) use ($app) {
 
-    return $app['twig']->render('mocks-info.html');
+    $tmpEndpoint = new EndpointEntity();
+    $tmpEndpointArray = [];
+
+    $tmpEndpoint->setBase62($base62);
+    $tmpEndpoint->setGetResponse(array(
+        'content-type' => 'json',
+        'body' => 'hello world',
+        'status-code' => 200
+    ));
+
+    $model = array(
+        'contentType'=>'json',
+        'body'=>'hello world',
+        'statusCode'=>200
+    );
+
+    return $app['twig']->render('mocks-info.html', $model);
 
 });
 
