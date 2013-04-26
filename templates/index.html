@@ -24,12 +24,12 @@
 
             <div class="span10 offset2">
 
-                <form class="form-horizontal" action="{{ path('endpoint') }}">
+                <form class="form-horizontal" action="{{ path('mocks-create') }}" method="post">
                     <div class="control-group">
-                        <label class="control-label " for="sc">status code</label>
+                        <label class="control-label " for="statusCode">status code</label>
 
                         <div class="controls">
-                            <select class="input-xlarge" name="sc" id="sc">
+                            <select class="input-xlarge" name="statusCode" id="statusCode">
                                 {% for code,message in statusCodes %}
                                 <option value="{{code}}"
                                 {% if code == 200 %}selected="selected"{% endif %} >
@@ -40,10 +40,10 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="ct">content type</label>
+                        <label class="control-label" for="contentType">content type</label>
 
                         <div class="controls">
-                            <select class="input-xlarge" name="ct" id="ct">
+                            <select class="input-xlarge" name="contentType" id="contentType">
                                 {% for extension,mimeType in mimeTypes %}
                                 <option value="{{extension}}"
                                 {% if extension == 'html' %}selected="selected"{% endif %} >
@@ -54,10 +54,10 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="b">body</label>
+                        <label class="control-label" for="body">body</label>
 
                         <div class="controls">
-                            <textarea rows="10" type="text" name="b" id="b" class="input-xlarge"></textarea>
+                            <textarea rows="10" type="text" name="body" id="body" class="input-xlarge"></textarea>
 
                         </div>
                     </div>
