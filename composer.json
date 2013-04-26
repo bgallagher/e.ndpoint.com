@@ -17,7 +17,8 @@
         "symfony/translation": "~2.2",
         "symfony/twig-bridge": "~2.2",
         "symfony/validator": "~2.2",
-        "dflydev/doctrine-orm-service-provider": "1.0.*@dev"
+        "dflydev/doctrine-orm-service-provider": "1.0.*@dev",
+        "aza/math": "v1.0.2"
     },
     "autoload": {
         "psr-0": {

@@ -3,20 +3,99 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cbfd35042bd603595a0ebb2014b04b0b",
+    "hash": "0faaa1d161f4d47b80ba9e63459dd541",
     "packages": [
+        {
+            "name": "aza/math",
+            "version": "v1.0.2",
+            "target-dir": "Aza/Components/Math",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Anizoptera/Math.git",
+                "reference": "v1.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Anizoptera/Math/zipball/v1.0.2",
+                "reference": "v1.0.2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "aza/benchmark": "Used in benchmark tests",
+                "aza/common": "Used in benchmark tests",
+                "aza/phpgen": "Used for development code building",
+                "ext-bcmath": "Install the BCMath (Binary Calculator Arbitrary Precision Mathematics) extension to work with arbitrary precision arithmetic operations.",
+                "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up number systems conversions and (in future) arbitrary precision arithmetic operations."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Aza\\Components\\Math": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amal Samally",
+                    "email": "amal.samally@gmail.com",
+                    "homepage": "https://github.com/amal"
+                },
+                {
+                    "name": "AzaGroup Members"
+                }
+            ],
+            "description": "AzaMath - Anizoptera CMF mathematic component. Arbitrary precision arithmetic (for huge integers; BCMath wrapper) and universal convertor between positional numeral systems (supported bases from 2 to 62 inclusive, and systems with custom alphabet; pure PHP realisation, can use GMP and core PHP functions for speed optimization).",
+            "homepage": "https://github.com/Anizoptera/Math",
+            "keywords": [
+                "arbitrary",
+                "arithmetic",
+                "base",
+                "base 36",
+                "base 62",
+                "bcmath",
+                "big",
+                "bigint",
+                "bignum",
+                "binary calculator",
+                "calculation",
+                "convert",
+                "decimal",
+                "fraction",
+                "gmp",
+                "huge",
+                "integer",
+                "math",
+                "mathematics",
+                "number",
+                "positional",
+                "precision",
+                "radix"
+            ],
+            "time": "2013-02-25 23:34:26"
+        },
         {
             "name": "dflydev/doctrine-orm-service-provider",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dflydev/dflydev-doctrine-orm-service-provider.git",
-                "reference": "e453be6837cad2cd50371c08497d1e5e4b0bde9c"
+                "reference": "0a9aef69bc5b25575f2183209e0b548e69eb7314"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-doctrine-orm-service-provider/zipball/e453be6837cad2cd50371c08497d1e5e4b0bde9c",
-                "reference": "e453be6837cad2cd50371c08497d1e5e4b0bde9c",
+                "url": "https://api.github.com/repos/dflydev/dflydev-doctrine-orm-service-provider/zipball/0a9aef69bc5b25575f2183209e0b548e69eb7314",
+                "reference": "0a9aef69bc5b25575f2183209e0b548e69eb7314",
                 "shasum": ""
             },
             "require": {
@@ -26,6 +105,7 @@
             },
             "require-dev": {
                 "cilex/cilex": "1.*@dev",
+                "cilex/console-service-provider": "@dev",
                 "silex/silex": "1.*@dev"
             },
             "suggest": {
@@ -68,7 +148,7 @@
                 "pimple",
                 "silex"
             ],
-            "time": "2013-04-16 17:55:14"
+            "time": "2013-04-25 13:00:16"
         },
         {
             "name": "doctrine/common",
@@ -424,48 +504,48 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Silex.git",
-                "reference": "8bf675f57cb7967cbfa3988be501f1dfe6c45432"
+                "reference": "a7f0d0b8a79bd71e9b84f1fd5845d412d35547d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/8bf675f57cb7967cbfa3988be501f1dfe6c45432",
-                "reference": "8bf675f57cb7967cbfa3988be501f1dfe6c45432",
+                "url": "https://api.github.com/repos/fabpot/Silex/zipball/a7f0d0b8a79bd71e9b84f1fd5845d412d35547d7",
+                "reference": "a7f0d0b8a79bd71e9b84f1fd5845d412d35547d7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "pimple/pimple": "1.*",
-                "symfony/event-dispatcher": ">=2.1,<2.3-dev",
-                "symfony/http-foundation": ">=2.1,<2.3-dev",
-                "symfony/http-kernel": ">=2.1,<2.3-dev",
-                "symfony/routing": ">=2.1,<2.3-dev"
+                "symfony/event-dispatcher": ">=2.1,<2.4-dev",
+                "symfony/http-foundation": ">=2.1,<2.4-dev",
+                "symfony/http-kernel": ">=2.1,<2.4-dev",
+                "symfony/routing": ">=2.1,<2.4-dev"
             },
             "require-dev": {
                 "doctrine/dbal": ">=2.2.0,<2.4.0-dev",
                 "monolog/monolog": ">=1.4,<2.0,>=1.4.1",
                 "swiftmailer/swiftmailer": "4.2.*",
-                "symfony/browser-kit": ">=2.1,<2.3-dev",
-                "symfony/config": ">=2.1,<2.3-dev",
-                "symfony/css-selector": ">=2.1,<2.3-dev",
-                "symfony/dom-crawler": ">=2.1,<2.3-dev",
-                "symfony/finder": ">=2.1,<2.3-dev",
-                "symfony/form": ">=2.1.4,<2.3-dev",
-                "symfony/locale": ">=2.1,<2.3-dev",
-                "symfony/monolog-bridge": ">=2.1,<2.3-dev",
-                "symfony/options-resolver": ">=2.1,<2.3-dev",
-                "symfony/process": ">=2.1,<2.3-dev",
-                "symfony/security": ">=2.1,<2.3-dev",
-                "symfony/serializer": ">=2.1,<2.3-dev",
-                "symfony/translation": ">=2.1,<2.3-dev",
-                "symfony/twig-bridge": ">=2.1,<2.3-dev",
-                "symfony/validator": ">=2.1,<2.3-dev",
+                "symfony/browser-kit": ">=2.1,<2.4-dev",
+                "symfony/config": ">=2.1,<2.4-dev",
+                "symfony/css-selector": ">=2.1,<2.4-dev",
+                "symfony/dom-crawler": ">=2.1,<2.4-dev",
+                "symfony/finder": ">=2.1,<2.4-dev",
+                "symfony/form": ">=2.1.4,<2.4-dev",
+                "symfony/locale": ">=2.1,<2.4-dev",
+                "symfony/monolog-bridge": ">=2.1,<2.4-dev",
+                "symfony/options-resolver": ">=2.1,<2.4-dev",
+                "symfony/process": ">=2.1,<2.4-dev",
+                "symfony/security": ">=2.1,<2.4-dev",
+                "symfony/serializer": ">=2.1,<2.4-dev",
+                "symfony/translation": ">=2.1,<2.4-dev",
+                "symfony/twig-bridge": ">=2.1,<2.4-dev",
+                "symfony/validator": ">=2.1,<2.4-dev",
                 "twig/twig": ">=1.8.0,<2.0-dev"
             },
             "suggest": {
-                "symfony/browser-kit": ">=2.1,<2.3-dev",
-                "symfony/css-selector": ">=2.1,<2.3-dev",
-                "symfony/dom-crawler": ">=2.1,<2.3-dev",
-                "symfony/form": "To make use of the FormServiceProvider, >= 2.1.4 is required"
+                "symfony/browser-kit": ">=2.1,<2.4-dev",
+                "symfony/css-selector": ">=2.1,<2.4-dev",
+                "symfony/dom-crawler": ">=2.1,<2.4-dev",
+                "symfony/form": ">= 2.1.4,<2.4-dev"
             },
             "type": "library",
             "extra": {
@@ -498,7 +578,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-04-24 12:29:40"
+            "time": "2013-04-26 05:51:45"
         },
         {
             "name": "silex/web-profiler",

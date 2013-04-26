@@ -40,11 +40,6 @@ class Endpoint
     private $createdDate;
 
     /**
-     * @var \DateTime
-     */
-    private $updatedDate;
-
-    /**
      * @var integer
      */
     private $id;
@@ -186,29 +181,6 @@ class Endpoint
     public function getCreatedDate()
     {
         return $this->createdDate;
-    }
-
-    /**
-     * Set updatedDate
-     *
-     * @param \DateTime $updatedDate
-     * @return Endpoint
-     */
-    public function setUpdatedDate($updatedDate)
-    {
-        $this->updatedDate = $updatedDate;
-    
-        return $this;
-    }
-
-    /**
-     * Get updatedDate
-     *
-     * @return \DateTime 
-     */
-    public function getUpdatedDate()
-    {
-        return $this->updatedDate;
     }
 
     /**
