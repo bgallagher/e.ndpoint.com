@@ -67,6 +67,7 @@ class Mocks implements ControllerProviderInterface
             }
 
             $methodGetter = 'get' . ucfirst(strtolower($request->getMethod())) . 'Response';
+            $methodGetter = 'getGetResponse'; //temporary override
 
             $responseData = array_merge($defaults, $endpoint->$methodGetter());
 
