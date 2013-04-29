@@ -23,12 +23,13 @@ class Mocks implements ControllerProviderInterface
         $controllers->post('/', function (Request $request) use ($app) {
 
             $endpointService = $app['endpoint.service'];
+            $extensionMimeTypeGuesser = $app['extensionGuesser'];
 
             $endpoint = new EndpointEntity();
             $endpoint->setGetResponse(array(
                 'statusCode' => $request->get('statusCode') ? : 200,
                 'body' => $request->get('body') ? : '',
-                'contentType' => $request->get('contentType'),
+                'contentType' => $extensionMimeTypeGuesser->guess($request->get('contentType')) ?: $request->get('contentType'),
             ));
 
             $endpointService->create($endpoint);
@@ -73,7 +74,7 @@ class Mocks implements ControllerProviderInterface
                 $responseData['body'],
                 $responseData['statusCode'],
                 array(
-                    'Content-Type' => $extensionMimeTypeGuesser->guess($responseData['contentType']),
+                    'Content-Type' => $responseData['contentType'],
                 )
             );
 
