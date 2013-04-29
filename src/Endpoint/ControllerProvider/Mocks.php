@@ -10,12 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 class Mocks implements ControllerProviderInterface
 {
 
-    protected $defaultResponseData = array(
-        'body' => null,
-        'statusCode' => 200,
-        'contentType' => null,
-    );
-
     public function connect(Application $app)
     {
         $controllers = $app['controllers_factory'];
@@ -57,6 +51,12 @@ class Mocks implements ControllerProviderInterface
 
         $controllers->match('/{base62}', function (Request $request, $base62) use ($app) {
 
+            $defaults =  array(
+                'body' => null,
+                'statusCode' => 200,
+                'contentType' => null,
+            );
+
             $endpointService = $app['endpoint.service'];
             $extensionMimeTypeGuesser = $app['extensionGuesser'];
 
@@ -68,7 +68,7 @@ class Mocks implements ControllerProviderInterface
 
             $methodGetter = 'get' . ucfirst(strtolower($request->getMethod())) . 'Response';
 
-            $responseData = array_merge($this->defaultResponseData, $endpoint->$methodGetter());
+            $responseData = array_merge($defaults, $endpoint->$methodGetter());
 
             return new Response(
                 $responseData['body'],
