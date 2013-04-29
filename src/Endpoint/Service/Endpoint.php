@@ -2,7 +2,6 @@
 
 namespace Endpoint\Service;
 
-use Aza\Components\Math\NumeralSystem;
 use Chavao\Base62;
 use Doctrine\ORM\EntityManager;
 use Endpoint\Entity\Endpoint as EndpointEntity;
