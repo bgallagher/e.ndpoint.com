@@ -3,6 +3,7 @@
 namespace Endpoint\Service;
 
 use Aza\Components\Math\NumeralSystem;
+use Chavao\Base62;
 use Doctrine\ORM\EntityManager;
 use Endpoint\Entity\Endpoint as EndpointEntity;
 
@@ -27,12 +28,13 @@ class Endpoint
      */
     public function create(EndpointEntity $endpoint)
     {
+        $base62Converter = new Base62();
         $endpoint->setCreatedDate(new \DateTime());
 
         $this->entityManager->persist($endpoint);
         $this->entityManager->flush();
 
-        $endpoint->setBase62(NumeralSystem::convertTo($endpoint->getId(), 62));
+        $endpoint->setBase62($base62Converter->encode($endpoint->getId()));
         $this->entityManager->flush();
     }
 
@@ -43,7 +45,8 @@ class Endpoint
 
     public function findByBase62($base62)
     {
-        $id = NumeralSystem::convertFrom($base62, 62);
+        $base62Converter = new Base62();
+        $id = $base62Converter->decode($base62);
         return $this->findById($id);
     }
 
