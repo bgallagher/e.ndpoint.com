@@ -3,86 +3,43 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0faaa1d161f4d47b80ba9e63459dd541",
+    "hash": "cadb51ff4fb819e1157e2395786d3c01",
     "packages": [
         {
-            "name": "aza/math",
-            "version": "v1.0.2",
-            "target-dir": "Aza/Components/Math",
+            "name": "chavao/base62",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Anizoptera/Math.git",
-                "reference": "v1.0.2"
+                "url": "https://github.com/Chavao/Base62.git",
+                "reference": "4f542be2638b8a4fefd7bc2bfd754b580a75ff56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anizoptera/Math/zipball/v1.0.2",
-                "reference": "v1.0.2",
+                "url": "https://api.github.com/repos/Chavao/Base62/zipball/4f542be2638b8a4fefd7bc2bfd754b580a75ff56",
+                "reference": "4f542be2638b8a4fefd7bc2bfd754b580a75ff56",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
-            },
-            "suggest": {
-                "aza/benchmark": "Used in benchmark tests",
-                "aza/common": "Used in benchmark tests",
-                "aza/phpgen": "Used for development code building",
-                "ext-bcmath": "Install the BCMath (Binary Calculator Arbitrary Precision Mathematics) extension to work with arbitrary precision arithmetic operations.",
-                "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up number systems conversions and (in future) arbitrary precision arithmetic operations."
+                "php": ">=5.3.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
-                    "Aza\\Components\\Math": ""
+                    "Chavao\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "GPLv2"
             ],
             "authors": [
                 {
-                    "name": "Amal Samally",
-                    "email": "amal.samally@gmail.com",
-                    "homepage": "https://github.com/amal"
-                },
-                {
-                    "name": "AzaGroup Members"
+                    "name": "Chavão",
+                    "email": "fale@chavao.net"
                 }
             ],
-            "description": "AzaMath - Anizoptera CMF mathematic component. Arbitrary precision arithmetic (for huge integers; BCMath wrapper) and universal convertor between positional numeral systems (supported bases from 2 to 62 inclusive, and systems with custom alphabet; pure PHP realisation, can use GMP and core PHP functions for speed optimization).",
-            "homepage": "https://github.com/Anizoptera/Math",
-            "keywords": [
-                "arbitrary",
-                "arithmetic",
-                "base",
-                "base 36",
-                "base 62",
-                "bcmath",
-                "big",
-                "bigint",
-                "bignum",
-                "binary calculator",
-                "calculation",
-                "convert",
-                "decimal",
-                "fraction",
-                "gmp",
-                "huge",
-                "integer",
-                "math",
-                "mathematics",
-                "number",
-                "positional",
-                "precision",
-                "radix"
-            ],
-            "time": "2013-02-25 23:34:26"
+            "description": "Base 62 encoder/decoder",
+            "time": "2012-11-17 04:29:25"
         },
         {
             "name": "dflydev/doctrine-orm-service-provider",
@@ -504,12 +461,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Silex.git",
-                "reference": "a7f0d0b8a79bd71e9b84f1fd5845d412d35547d7"
+                "reference": "7244eb8e5c3bff655291f6e3addc942b27c369ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/a7f0d0b8a79bd71e9b84f1fd5845d412d35547d7",
-                "reference": "a7f0d0b8a79bd71e9b84f1fd5845d412d35547d7",
+                "url": "https://api.github.com/repos/fabpot/Silex/zipball/7244eb8e5c3bff655291f6e3addc942b27c369ff",
+                "reference": "7244eb8e5c3bff655291f6e3addc942b27c369ff",
                 "shasum": ""
             },
             "require": {
@@ -578,7 +535,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2013-04-26 05:51:45"
+            "time": "2013-04-27 07:31:15"
         },
         {
             "name": "silex/web-profiler",
@@ -1929,7 +1886,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "silex/silex": 20,
-        "dflydev/doctrine-orm-service-provider": 20
+        "dflydev/doctrine-orm-service-provider": 20,
+        "chavao/base62": 20
     },
     "platform": {
         "php": ">=5.3.3"
